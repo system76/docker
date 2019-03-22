@@ -1,5 +1,8 @@
-FROM gitlab/dind
+FROM system76/dind
 MAINTAINER system76
+
+RUN apt update -qq && apt install -qqy \
+  xz-utils
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
@@ -42,4 +45,3 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && tar -xJf "node-v$NODE_VERSION-linux-$ARCH.tar.xz" -C /usr/local --strip-components=1 --no-same-owner \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
-
