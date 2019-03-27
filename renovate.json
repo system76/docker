@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@system76"
+  ],
+  
+  "ignorePath": [
+    "php"
+  ]
+}
