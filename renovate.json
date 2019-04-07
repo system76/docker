@@ -3,7 +3,7 @@
     "@system76"
   ],
   
-  "ignorePath": [
+  "ignorePaths": [
     "php"
   ]
 }
